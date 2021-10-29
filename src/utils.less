@@ -1,0 +1,41 @@
+//// 不支持 each 写法，可能跟 datav 内置 less 版本有关
+//each(range(4), {
+//  .swiper-ellipsis-@{value} {
+//    position: relative;
+//    text-align: center;
+//    overflow: hidden;
+//    display: -webkit-box;
+//    text-overflow: ellipsis;
+//    -webkit-line-clamp: @value;
+//    -webkit-box-orient: vertical
+//  }
+//});
+
+.swiper-ellipsis {
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+  display: -webkit-box;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+}
+
+.swiper-ellipsis-1 {
+  .swiper-ellipsis;
+  -webkit-line-clamp: 1;
+}
+
+.swiper-ellipsis-2 {
+  .swiper-ellipsis;
+  -webkit-line-clamp: 2;
+}
+
+.swiper-ellipsis-3 {
+  .swiper-ellipsis;
+  -webkit-line-clamp: 3;
+}
+
+.swiper-ellipsis-4 {
+  .swiper-ellipsis;
+  -webkit-line-clamp: 4;
+}

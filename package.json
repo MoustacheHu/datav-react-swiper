@@ -1,0 +1,520 @@
+{
+  "name": "@namespace/react-swiper",
+  "version": "0.0.1",
+  "dependencies": {
+    "bcore": "0.0.18",
+    "jquery": "2.1.4",
+    "lodash": "4.6.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "swiper": "^6.8.4"
+  },
+  "datav": {
+    "cn_name": "轮播图（react版本）",
+    "icon": "",
+    "protocol": 2,
+    "type": [
+      "regular"
+    ],
+    "view": {
+      "width": "650",
+      "height": "490",
+      "minWidth": "200",
+      "minHeight": "100"
+    },
+    "apis": {
+      "source": {
+        "handler": "render",
+        "description": "接口描述",
+        "fields": {
+          "value": {
+            "description": "值说明"
+          }
+        }
+      }
+    },
+    "config": {
+      "basicConfig": {
+        "name": "基础配置",
+        "type": "group",
+        "children": {
+          "id": {
+            "name": "唯一id（同一页中有多个组件时，必须保持唯一性）",
+            "type": "text"
+          },
+          "mode": {
+            "name": "模式",
+            "type": "select",
+            "options": [
+              {
+                "label": "单行",
+                "value": 1
+              },
+              {
+                "label": "双行",
+                "value": 2
+              },
+              {
+                "label": "三行",
+                "value": 3
+              }
+            ]
+          },
+          "rowItemLimit": {
+            "name": "每行展示数量",
+            "type": "select",
+            "options": [
+              {
+                "label": "1",
+                "value": 1
+              },
+              {
+                "label": "2",
+                "value": 2
+              },
+              {
+                "label": "3",
+                "value": 3
+              },
+              {
+                "label": "4",
+                "value": 4
+              },
+              {
+                "label": "5",
+                "value": 5
+              },
+              {
+                "label": "6",
+                "value": 6
+              },
+              {
+                "label": "7张",
+                "value": 7
+              },
+              {
+                "label": "8张",
+                "value": 8
+              }
+            ]
+          },
+          "direction": {
+            "name": "轮播方向",
+            "type": "select",
+            "options": [
+              {
+                "label": "水平方向",
+                "value": "horizontal"
+              },
+              {
+                "label": "垂直方向",
+                "value": "vertical"
+              }
+            ]
+          },
+          "speed": {
+            "name": "动画时长",
+            "type": "select",
+            "options": [
+              {
+                "label": "1s",
+                "value": 1000
+              },
+              {
+                "label": "1.5s",
+                "value": 1500
+              },
+              {
+                "label": "2s",
+                "value": 2000
+              },
+              {
+                "label": "2.5s",
+                "value": 2500
+              },
+              {
+                "label": "3s",
+                "value": 3000
+              },
+              {
+                "label": "3.5s",
+                "value": 3500
+              },
+              {
+                "label": "4s",
+                "value": 4000
+              },
+              {
+                "label": "4.5s",
+                "value": 4500
+              },
+              {
+                "label": "5s",
+                "value": 5000
+              }
+            ]
+          },
+          "effect": {
+            "name": "切换效果",
+            "type": "select",
+            "options": [
+              {
+                "label": "slide（普通切换）",
+                "value": "slide"
+              },
+              {
+                "label": "fade（渐入）",
+                "value": "fade"
+              },
+              {
+                "label": "coverflow（3d流）",
+                "value": "coverflow"
+              },
+              {
+                "label": "flip（3d翻转）",
+                "value": "flip"
+              }
+            ]
+          },
+          "autoplay": {
+            "name": "自动轮播配置",
+            "type": "group",
+            "fold": false,
+            "children": {
+              "delay": {
+                "name": "动画间隔",
+                "type": "select",
+                "options": [
+                  {
+                    "label": "1s",
+                    "value": 1000
+                  },
+                  {
+                    "label": "1.5s",
+                    "value": 1500
+                  },
+                  {
+                    "label": "2s",
+                    "value": 2000
+                  },
+                  {
+                    "label": "2.5s",
+                    "value": 2500
+                  },
+                  {
+                    "label": "3s",
+                    "value": 3000
+                  },
+                  {
+                    "label": "3.5s",
+                    "value": 3500
+                  },
+                  {
+                    "label": "4s",
+                    "value": 4000
+                  },
+                  {
+                    "label": "4.5s",
+                    "value": 4500
+                  },
+                  {
+                    "label": "5s",
+                    "value": 5000
+                  }
+                ]
+              },
+              "disableOnInteraction": {
+                "name": "操作后停止自动播放",
+                "type": "select",
+                "options": [
+                  {
+                    "label": "停止",
+                    "value": true
+                  },
+                  {
+                    "label": "不停止",
+                    "value": false
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "fold": false,
+        "default": {
+          "id": "react-swiper",
+          "mode": 2,
+          "rowItemLimit": 3,
+          "direction": "horizontal",
+          "speed": 1500,
+          "effect": "slide",
+          "autoplay": {
+            "delay": 1500,
+            "disableOnInteraction": false
+          }
+        }
+      },
+      "contentConfig": {
+        "name": "（标题+图片+说明区域）配置",
+        "type": "group",
+        "children": {
+          "backgroundImg": {
+            "type": "suite",
+            "name": "背景图",
+            "children": {
+              "display": {
+                "type": "switch",
+                "name": "是否启用",
+                "col": 8
+              },
+              "link": {
+                "type": "text",
+                "name": "链接",
+                "col": 16,
+                "showInPanel": {
+                  "conditions": [
+                    [
+                      "contentConfig.backgroundImg.display",
+                      "$ne",
+                      false
+                    ]
+                  ]
+                }
+              }
+            }
+          },
+          "padding": {
+            "type": "padding",
+            "name": "内边距（[5, 50]）",
+            "min": 5,
+            "max": 50
+          },
+          "title": {
+            "name": "标题",
+            "type": "group",
+            "children": {
+              "show": {
+                "name": "是否展示",
+                "type": "boolean"
+              },
+              "margin": {
+                "name": "外边距",
+                "type": "margin",
+                "enableHide": false
+              },
+              "font": {
+                "name": "文字套件",
+                "type": "font",
+                "enableHide": false,
+                "components": [
+                  "fontSize",
+                  "color"
+                ]
+              }
+            }
+          },
+          "horizontal": {
+            "name": "水平间距",
+            "type": "slider",
+            "min": 5,
+            "max": 30,
+            "suffix": "px",
+            "showRange": true,
+            "step": 0.1
+          },
+          "vertical": {
+            "name": "垂直间距",
+            "type": "slider",
+            "min": 5,
+            "max": 30,
+            "suffix": "px",
+            "showRange": true,
+            "step": 0.1
+          },
+          "link": {
+            "name": "内容区域默认背景图",
+            "type": "text",
+            "prefixIcon": "link"
+          },
+          "text": {
+            "name": "描述文字",
+            "type": "group",
+            "children": {
+              "show": {
+                "name": "是否展示",
+                "type": "boolean"
+              },
+              "maxRows": {
+                "name": "最多展示行数",
+                "type": "select",
+                "options": [
+                  {
+                    "label": "1",
+                    "value": 1
+                  },
+                  {
+                    "label": "2",
+                    "value": 2
+                  },
+                  {
+                    "label": "3",
+                    "value": 3
+                  },
+                  {
+                    "label": "4",
+                    "value": 4
+                  }
+                ]
+              },
+              "margin": {
+                "name": "外边距",
+                "type": "margin",
+                "enableHide": false
+              },
+              "font": {
+                "name": "文字套件",
+                "type": "font",
+                "enableHide": false,
+                "components": [
+                  "fontSize",
+                  "color"
+                ]
+              }
+            }
+          }
+        },
+        "fold": false,
+        "default": {
+          "backgroundImg": {
+            "display": true,
+            "link": "https://nbugs-odps.oss-cn-hangzhou.aliyuncs.com/tt_datav/bg1.png"
+          },
+          "padding": {
+            "top": 18,
+            "bottom": 12,
+            "left": 16,
+            "right": 16
+          },
+          "title": {
+            "show": true,
+            "margin": {
+              "top": 6,
+              "bottom": 0,
+              "left": 0,
+              "right": 0
+            },
+            "font": {
+              "fontFamily": "Microsoft Yahei",
+              "fontWeight": "normal",
+              "fontSize": 16,
+              "color": "#ffffff"
+            }
+          },
+          "horizontal": 16,
+          "vertical": 16,
+          "link": "https://img1.baidu.com/it/u=1833504353,2845140679&fm=26&fmt=auto",
+          "text": {
+            "show": true,
+            "maxRows": 1,
+            "margin": {
+              "top": 6,
+              "bottom": 0,
+              "left": 0,
+              "right": 0
+            },
+            "font": {
+              "fontFamily": "Microsoft Yahei",
+              "fontWeight": "normal",
+              "fontSize": 12,
+              "color": "#fff"
+            }
+          }
+        }
+      }
+    },
+    "api_data": {
+      "source": [
+        {
+          "title": "1",
+          "text": "黑子的篮球，这是图1黑子的篮球，这是图1黑子的篮球，这是图1",
+          "url": "https://img0.baidu.com/it/u=2790438006,3153919416&fm=26&fmt=auto"
+        },
+        {
+          "title": "2",
+          "text": "黑子的篮球，这是图2",
+          "url": "https://img2.baidu.com/it/u=837617701,3721987523&fm=26&fmt=auto"
+        },
+        {
+          "title": "3",
+          "text": "黑子的篮球，这是图3",
+          "url": "https://img2.baidu.com/it/u=570439127,1813023388&fm=26&fmt=auto"
+        },
+        {
+          "title": "4",
+          "text": "黑子的篮球，这是图4",
+          "url": "https://img1.baidu.com/it/u=3075004094,2945403206&fm=26&fmt=auto"
+        },
+        {
+          "title": "5",
+          "text": "黑子的篮球，这是图5",
+          "url": "https://img1.baidu.com/it/u=166042385,95814055&fm=26&fmt=auto"
+        },
+        {
+          "title": "6",
+          "text": "黑子的篮球，这是图6",
+          "url": "https://img2.baidu.com/it/u=1638895776,3713586313&fm=26&fmt=auto"
+        },
+        {
+          "title": "7",
+          "text": "黑子的篮球，这是图7",
+          "url": "https://img0.baidu.com/it/u=1195283913,2842372813&fm=26&fmt=auto"
+        },
+        {
+          "title": "8",
+          "text": "黑子的篮球，这是图8",
+          "url": "https://img1.baidu.com/it/u=1453822108,4010737556&fm=26&fmt=auto"
+        },
+        {
+          "title": "9",
+          "text": "黑子的篮球，这是图9",
+          "url": "https://img0.baidu.com/it/u=2814983291,631300267&fm=26&fmt=auto"
+        },
+        {
+          "title": "10",
+          "text": "黑子的篮球，这是图10",
+          "url": "https://img0.baidu.com/it/u=1990957279,2317183852&fm=26&fmt=auto"
+        },
+        {
+          "title": "11",
+          "text": "黑子的篮球，这是图11",
+          "url": "https://img0.baidu.com/it/u=35655219,3200458245&fm=26&fmt=auto"
+        },
+        {
+          "title": "12",
+          "text": "黑子的篮球，这是图12",
+          "url": "https://img0.baidu.com/it/u=3170750911,3782615781&fm=15&fmt=auto"
+        },
+        {
+          "title": "13",
+          "text": "黑子的篮球，这是图13",
+          "url": "https://img2.baidu.com/it/u=2133677275,2055823938&fm=15&fmt=auto"
+        },
+        {
+          "title": "14",
+          "text": "黑子的篮球，这是图14",
+          "url": "https://img0.baidu.com/it/u=836114185,966792342&fm=26&fmt=auto"
+        },
+        {
+          "title": "15",
+          "text": "黑子的篮球，这是图15",
+          "url": "https://img1.baidu.com/it/u=2784407128,3415143786&fm=26&fmt=auto"
+        },
+        {
+          "title": "16",
+          "text": "黑子的篮球，这是图16",
+          "url": "https://img2.baidu.com/it/u=3976407049,571096486&fm=26&fmt=auto"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,39 @@
+.swiper-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+  .multiple_swiper-page {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    .multiple_swiper-row {
+      flex: 1;
+      display: flex;
+      position: relative;
+      width: 100%;
+
+      .multiple_swiper-box {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        background-size: 100% 100%;
+
+        &__img {
+          flex: 1;
+          background-size: cover;
+          background-position: top;
+        }
+
+        &__title {
+          text-align: center;
+        }
+      }
+    }
+  }
+}
+
